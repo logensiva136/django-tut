@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{month|title}} Challenges</title>
+    <title>All Challenges</title>
   </head>
+
   <body>
-    <h1>{{month|title}}'s Challenges</h1>
-    {% if month is not None %}
-    <h2>{{text}}</h2>
-    {% else %}
-    <p>There no challenges for this month!</p>
-    {% endif %}
+    <ul>
+      {% for month in months %}
+      <li><a href="{% url 'month-challenges' month %}">{{month|title}}</a></li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
