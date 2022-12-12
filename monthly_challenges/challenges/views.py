@@ -49,6 +49,6 @@ def monthly_challenges_by_number(request, month):
 def monthly_challenges(request, month):
     try:
         what = challenges_by_months[month]
-        return HttpResponse(what)
+        return render(request, "challenges/challenge.html", {"text": what, "month": month})
     except:
         return HttpResponseNotFound("Kakka")
